@@ -83,7 +83,7 @@ export const useSettingsStore = defineStore('settings', {
     async fetchUserPreferences() {
       const auth = useAuthStore()
       if (auth.isAuthenticated) {
-        this.preferences = await fetchPreferences()
+        this.preferences = await auth.fetchPreferences()
       } else {
         throw new Error('User must be authenticated')
       }
